@@ -1,0 +1,46 @@
+---
+title: "TD1"
+author: "dwdw666"
+date: '2022-03-28'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## loading Package 
+
+```{r}
+library(ggplot2)
+library(dplyr)
+```
+
+## Loading Data
+
+```{r diamonds, echo=FALSE}
+View(diamonds)
+```
+
+## Resume
+
+```{r diamonds}
+summary(diamonds)
+```
+
+## Visualisez l’histogramme du prix
+```{r diamonds}
+ggplot(diamonds,aes(x=price,fill=cut)) + geom_histogram(binwidth = 1000)
+```
+## filtre data
+```{r diamonds}
+filter_diamonds <- filter(diamonds, price > 5000)
+head(filter_diamonds)
+
+ggplot(filter_diamonds,aes(x=price)) + geom_histogram(binwidth = 1000) + ggtitle("geom_density")
+```
+
+## une corrélation entre carat et price 
+```{r diamonds}
+ggplot(diamonds,aes(x=price,y=carat,colour=clarity)) + geom_point() + facet_grid(rows = vars(clarity))
+```
