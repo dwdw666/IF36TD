@@ -43,7 +43,7 @@ ui <- dashboardPage(
       ),
       
       # Second tab content
-      tabItem(tabName = "widgets",
+      tabItem(tabName = "graphique",
               h2("Widgets tab content")
       )
     )
